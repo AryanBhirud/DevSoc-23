@@ -15,9 +15,11 @@
             <br>
             
             Terms and Conditions : 
-             - The transaction will be successfull only if you have enough money in your wallet.
-             - Once the transaction has been successfuly completed, it cannot be reverted.
-             - There can be no refunds, or returns.
+            <ul>
+                <li>The transaction will be successfull only if you have enough money in your wallet.</li>
+                <li>Once the transaction has been successfuly completed, it cannot be reverted.</li>
+                <li>There can be no refunds, or returns.</li>
+            </ul>
         </div>
         <div>
             <!-- <button class="cssbuttons-io">
@@ -25,7 +27,11 @@
               </button> -->
             <form action="{% url 'run_face_recog_page' %}" method="post">
                 {% csrf_token %}
-                <button class="cssbuttons-io" type="submit">Pay Now</button>
+                <div class="container">
+                    <div>Rs. <input type="number" name="price" placeholder="Price"></div>
+                    
+                    <button class="cssbuttons-io" type="submit">Pay Now</button>
+                </div>
                 
             </form>
 
