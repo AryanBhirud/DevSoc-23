@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import student
 from cryptography.fernet import Fernet
+import cv2
+import numpy as np
+import os
+import face_recognition
 
 
 key = Fernet.generate_key()
@@ -55,10 +59,6 @@ def register_new_user(request):
     return render(request, 'WebPortal/register_result.html', {'message': 'Student and face could not be registered.'})
        
 # ---------------------------------------------------------------------------------------------------
-import cv2
-import numpy as np
-import os
-import face_recognition
 
 # Load the existing database of faces
 known_faces_dir = 'static\images'
