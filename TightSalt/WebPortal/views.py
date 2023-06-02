@@ -76,6 +76,8 @@ def is_face_known(face_encoding):
     return any(matches)
 
 def run_face_recog_page(request):
+    if request.method == 'POST':
+        price = request.POST.get('price')
     # Initialize the webcam
     video_capture = cv2.VideoCapture(0)
 
@@ -99,7 +101,7 @@ def run_face_recog_page(request):
                 # Release the webcam and close any open windows
                 video_capture.release()
                 cv2.destroyAllWindows()
-                return render(request, 'WebPortal/result.html', {'message': 'Face recognized. Payment allowed.'})
+                return render(request, 'WebPortal/result.html', {'message': f'Face recognized. Payment allowed for Rs.{price}.'})
 
         # Increment the attempt count
         attempt_count += 1
