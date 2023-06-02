@@ -1,0 +1,49 @@
+{% extends 'WebPortal/main.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="register_form">
+        <form action="{% url 'register_new_user' %}" method="post">
+            {% csrf_token %}
+            <div id="user-info">    
+                <div class="form-field">
+                    <input required class="form-control" type="text" name="fname" placeholder="First Name">
+                </div>  
+                <br>
+                <div class="form-field">
+                    <input required class="form-control" type="text" name="lname" placeholder="Last Name">
+                </div>
+                <br>
+                <div class="form-field">
+                    <input class="form-control" type="email" name="email" placeholder="Email">
+                </div>
+                <br>
+                <div class="form-field">
+                    <input class="form-control" type="number" name="mobile" placeholder="Mobile">
+                </div>
+            
+                <br>
+                <div class="form-field">
+                    <input class="form-control" type="text" name="regNo" placeholder="Registeration Number">
+                </div>
+                <br>
+                <div class="form-field">
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-field">
+                    <input class="form-control" type="file" name="save_img">
+                </div>
+            </div>
+            <br>
+
+            <button class="btn1" type="submit">Register</button>
+        </form>
+    </div>
+
+
+
+
+
+
+{% endblock content %}

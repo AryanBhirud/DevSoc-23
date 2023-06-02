@@ -1,0 +1,295 @@
+
+
+.card {
+    width: 800px;
+    height: 700px;
+    margin: 0 auto;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 1px solid #ccc;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h2 {
+    color: #333;
+  }
+  
+  .card p {
+    color: #777;
+  }
+  
+  .card button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .card button.secondary {
+    background-color: #777;
+  }
+  .desc{
+    text-align: left;
+
+  }
+  .image img{
+    width: 100%;
+  }
+  .cssbuttons-io {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    border-radius: 0.8em;
+    border: none;
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: ghostwhite;
+    overflow: hidden;
+  }
+  
+  .cssbuttons-io svg {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+  }
+  
+  .cssbuttons-io span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8em 1.2em 0.8em 1.05em;
+  }
+  
+  .cssbuttons-io::before,
+  .cssbuttons-io::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  .cssbuttons-io::before {
+    content: "";
+    background: #00000070;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+  }
+  
+  .cssbuttons-io:hover::before {
+    transform: translate3d(100%, 0, 0);
+  }
+  
+  .cssbuttons-io:active {
+    transform: scale(0.95);
+  }
+  
+
+
+  /* ---------------------------------------------------------------- */
+  body{
+    background-color: hsl(308, 42%, 86%);
+  }
+  .card{
+    width: 25%;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    /* box-shadow: 2px 2px 10px rgb(13, 13, 13); */
+  
+  }
+  
+  .row{
+    display: inline-flexbox;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .card:hover{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.378);
+    
+  }
+  .image img{
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    
+  }
+  .title{
+    padding: 10px;
+  }
+  .desc{
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .btn1{
+    margin-top: 10px;
+    margin-left: 90px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 2px;
+  }
+  .btn1:hover{
+    background-color: rgb(30, 194, 231);
+    border: 0px;
+    color: aliceblue;
+    box-shadow: 0.5px 0.5px 2.5px rgba(0, 0, 0, 0.378);
+  }
+  
+  
+  
+  
+  /* purana chhapa hua maal */
+    body{
+      background-color: hsl(0, 0%, 98%);
+    }
+  
+    h1,h2,h3,h4,h5,h6{
+      color:hsl(0, 0%, 30%);
+    }
+  
+    .box-element{
+      box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 10px;
+    }
+  
+    .thumbnail{
+      width: 100%;
+      height: 200px;
+      -webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+      -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+      box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    }
+  
+    .product{
+      border-radius: 0 0 4px 4px;
+    }
+  
+  
+    #cart-icon{
+      width:25px;
+      display: inline-block;
+      margin-left: 15px;
+    }
+  
+    #cart-total{
+      display: block;
+      text-align: center;
+      color:#fff;
+      background-color: red;
+      width: 20px;
+      height: 25px;
+      border-radius: 50%;
+      font-size: 14px;
+    }
+  
+    .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
+      margin-top: 10px;
+    }
+  
+    .btn{
+      border-radius: 0;
+    }
+  
+    .row-image{
+      width: 100px;
+    }
+  
+    .form-field{
+      width:80%;
+      display: inline-block;
+      padding: 5px;
+    }
+  
+    .cart-row{
+      display: flex;
+      align-items: flex-stretch;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ececec;
+  
+    }
+  
+    .quantity{
+      display: inline-block;
+      font-weight: 700;
+      padding-right:10px;
+      
+  
+    }
+  
+    .chg-quantity{
+      width: 12px;
+      cursor: pointer;
+      display: block;
+      margin-top: 5px;
+      transition:.1s;
+    }
+  
+    .chg-quantity:hover{
+      opacity: .6;
+    }
+  
+  
+    .hidden{
+      display: none!important;
+    }
+  
+  
+  
+  
+    /* dropdown qty selector */
+  
+    .dropbtn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      }
+      
+      .dropdown {
+      position: relative;
+      display: inline-block;
+      }
+      
+      .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      }
+      
+      .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      }
+      
+      .dropdown-content a:hover {background-color: #ddd;}
+      
+      .dropdown:hover .dropdown-content {display: block;}
+      
+      .dropdown:hover .dropbtn {background-color: #3e8e41;}
