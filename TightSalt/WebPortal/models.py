@@ -6,5 +6,5 @@ class student(models.Model):
     email = models.EmailField()
     mobile = models.IntegerField()
     regno = models.CharField(max_length=9)
-    encrp_passowrd = models.CharField(max_length=100)
-    save_img = models.ImageField(upload_to='')
+    password = models.CharField(max_length=20, default='123456')
+    save_img = models.ImageField(upload_to='static/images')
