@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import student
-from cryptography.fernet import Fernet
 import cv2
 import numpy as np
 import os
@@ -9,7 +8,6 @@ import face_recognition
 from pyzbar import pyzbar
 
 
-key = Fernet.generate_key()
 
 def home(request):
     context = {}
