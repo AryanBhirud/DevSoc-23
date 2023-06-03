@@ -10,4 +10,5 @@ urlpatterns = [
     path('result/', views.result_view, name='result'),
     path('register/', views.register, name='register'),
     path('register_new_user', views.register_new_user, name='register_new_user'),
+    path('qr_auth/', views.qr_auth, name='qr_auth'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
