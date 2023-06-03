@@ -140,7 +140,7 @@ def run_qr_scanner(request):
     cap.release()
     cv2.destroyAllWindows()
     
-    def generate_qr_code(data):
+def generate_qr_code(data):
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_H,
