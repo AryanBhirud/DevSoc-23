@@ -43,11 +43,10 @@ def register_new_user(request):
         registration_number = request.POST.get('regNo')
         paswrd = request.POST.get('password')
         photo = request.FILES.get('save_img')
-        user = student(fname=first_name, lname=last_name, email=email, mobile=mobile, regno=registration_number,  password=paswrd)
+        
+        user = student(fname=first_name, lname=last_name, email=email, mobile=mobile, regno=registration_number, password=paswrd, save_img=photo)
         user.save()
-        if photo:
-            user.photo = photo
-            user.save()
+        
         qr_code = generate_qr_code(paswrd)
         qr_code.show()    
         return render(request, 'WebPortal/register_result.html', {'message': 'Student and face registered.'})
@@ -56,7 +55,7 @@ def register_new_user(request):
 # ---------------------------------------------------------------------------------------------------
 
 # Load the existing database of faces
-known_faces_dir = 'static\images'
+known_faces_dir = 'static\images\static\images'
 known_faces = []
 known_names = []
 for file_name in os.listdir(known_faces_dir):
@@ -78,7 +77,7 @@ def run_face_recog_page(request):
 
     attempt_count = 0  # Track the number of face recognition attempts
 
-    while attempt_count < 2:  # Limit the number of attempts to 10
+    while attempt_count < 2:  # Limit the number of attempts to 2
         # Capture frame-by-frame from the webcam
         ret, frame = video_capture.read()
 
@@ -101,7 +100,7 @@ def run_face_recog_page(request):
         # Increment the attempt count
         attempt_count += 1
 
-    # If the face is not recognized within 10 attempts, return a message
+    # If the face is not recognized within 2 attempts, return a message
     # Release the webcam and close any open windows
     video_capture.release()
     cv2.destroyAllWindows()
