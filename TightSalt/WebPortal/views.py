@@ -41,7 +41,6 @@ def register_new_user(request):
         registration_number = request.POST.get('regNo')
         paswrd = request.POST.get('password')
         photo = request.FILES.get('save_img')
-        encrypted_paswrd = encrypt_password(key, paswrd)
         user = student(fname=first_name, lname=last_name, email=email, mobile=mobile, regno=registration_number,  password=paswrd)
         user.save()
         if photo:
