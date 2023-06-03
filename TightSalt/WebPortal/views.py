@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 import os
 import face_recognition
+from pyzbar import pyzbar
 
 
 key = Fernet.generate_key()
@@ -39,6 +40,12 @@ def register(request):
     context = {}
     return render(request, 'WebPortal/register.html', context)
 
+def qr_auth(request):
+    qr_link = run_qr_scanner(request)
+    context = {
+        'barcode_data':f'the link of the user is {qr_link}'
+    }
+    return render(request, 'WebPortal/qr_auth.html', context)
 # ---------------------------------------------------------------------------------------------------
 def register_new_user(request):
     if request.method == 'POST':
@@ -101,7 +108,7 @@ def run_face_recog_page(request):
                 # Release the webcam and close any open windows
                 video_capture.release()
                 cv2.destroyAllWindows()
-                return render(request, 'WebPortal/result.html', {'message': f'Face recognized. Payment allowed for Rs.{price}.'})
+                return render(request, 'WebPortal/result.html', {'message': 'Face recognized.'})
 
         # Increment the attempt count
         attempt_count += 1
@@ -111,3 +118,37 @@ def run_face_recog_page(request):
     video_capture.release()
     cv2.destroyAllWindows()
     return render(request, 'WebPortal/result.html', {'message': 'Face not recognized. Payment denied.'})
+
+
+def run_qr_scanner(request):
+    cap = cv2.VideoCapture(0)
+    
+    while True:
+        ret, frame = cap.read()
+        
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        
+        barcodes = pyzbar.decode(gray)
+        
+        if len(barcodes) > 0:
+            for barcode in barcodes:
+                (x, y, w, h) = barcode.rect
+                
+                cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                
+                barcode_data = barcode.data.decode("utf-8")
+                
+                print("QR Code:", barcode_data)
+                cap.release()
+                cv2.destroyAllWindows()
+                return barcode_data
+
+            break
+    
+        cv2.imshow("QR Code Scanner", frame)
+        
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    
+    cap.release()
+    cv2.destroyAllWindows()
