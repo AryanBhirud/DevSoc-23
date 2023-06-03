@@ -11,19 +11,6 @@ from pyzbar import pyzbar
 
 key = Fernet.generate_key()
 
-def encrypt_password(key, plaintext):
-    # Create a Fernet cipher object with the key
-    cipher = Fernet(key)
-
-    # Convert the plaintext to bytes
-    plaintext_bytes = plaintext.encode("utf-8")
-
-    # Encrypt the plaintext
-    ciphertext = cipher.encrypt(plaintext_bytes)
-
-    # Return the encrypted ciphertext as bytes
-    return ciphertext
-
 def home(request):
     context = {}
     return render(request, 'WebPortal/home.html', context)
@@ -57,7 +44,7 @@ def register_new_user(request):
         paswrd = request.POST.get('password')
         photo = request.FILES.get('save_img')
         encrypted_paswrd = encrypt_password(key, paswrd)
-        user = student(fname=first_name, lname=last_name, email=email, mobile=mobile, regno=registration_number, encrp_passowrd=encrypted_paswrd)
+        user = student(fname=first_name, lname=last_name, email=email, mobile=mobile, regno=registration_number,  password=paswrd)
         user.save()
         if photo:
             user.photo = photo
