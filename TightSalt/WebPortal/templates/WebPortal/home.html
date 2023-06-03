@@ -28,7 +28,7 @@
             <form action="{% url 'run_face_recog_page' %}" method="post">
                 {% csrf_token %}
                 <div class="container">
-                    <div>Rs. <input type="number" name="price" placeholder="Price"></div>
+                    <div>Rs. <input type="number" name="price" placeholder="Price" required></div>
                     
                     <button class="cssbuttons-io" type="submit">Pay Now</button>
                 </div>
